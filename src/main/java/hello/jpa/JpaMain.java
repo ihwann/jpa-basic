@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -19,11 +20,27 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member();
-            member.setId(1L);
-            member.setName("test");
+            Member findMember = em.find(Member.class, 1L);
 
-            em.persist(member);
+            // delete row
+            //em.remove(findMember);
+
+            // update row
+            //findMember.setName("ilhwan");
+
+
+            // JPQL
+            // JPQL은 테이블이 아닌 객체를 대상으로 검색하는 객체지향 쿼리
+            List<Member> resultList = em.createQuery("select m from Member as m ", Member.class)
+                    .setFirstResult(1)
+                    .setMaxResults(10)
+                    .getResultList();
+
+            for(Member member : resultList) {
+                System.out.println("member = " + member.toString());
+            }
+
+
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,8 +48,8 @@ public class JpaMain {
 
         } finally {
             em.close();
-            emf.close();
         }
 
+        emf.close();
     }
 }
