@@ -1,9 +1,6 @@
 package hello.jpa.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,10 +9,15 @@ import javax.persistence.Id;
 @Getter
 @ToString
 @Setter
+@NoArgsConstructor
 public class Member {
 
     @Id
     private Long id;
     private String name;
 
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
