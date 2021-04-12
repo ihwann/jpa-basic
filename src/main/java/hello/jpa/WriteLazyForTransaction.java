@@ -19,11 +19,6 @@ public class WriteLazyForTransaction {
 
         try {
 
-            Member member1 = new Member(123L, "일환킴1");
-            Member member2 = new Member(124L, "일환킴2");
-
-            em.persist(member1);
-            em.persist(member2);
 
             System.out.println("===============================");
 
