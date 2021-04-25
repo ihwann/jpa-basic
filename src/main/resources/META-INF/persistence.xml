@@ -5,13 +5,16 @@
 
     <!--  JPA 유닛 이름 보통 DB당 하나-->
     <persistence-unit name="hello_jpa">
-        <class>hello.jpa.entity.Member</class>
+        <class>jpabook.shop.domain.entity.Item</class>
+        <class>jpabook.shop.domain.entity.Member</class>
+        <class>jpabook.shop.domain.entity.Order</class>
+        <class>jpabook.shop.domain.entity.OrderItem</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="ehdqhr!2"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/infra?serverTimezone=Asia/Seoul&amp;useSSL=false"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/jpa_shop?serverTimezone=Asia/Seoul&amp;useSSL=false"/>
 
             <!--  데이터베이스 방언??-->
             <!--  DB마다 문법과 함수가 다르며 JPA는 어느 특정 DB에도 종속되어 있지 않음.-->
