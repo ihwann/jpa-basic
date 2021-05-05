@@ -15,10 +15,12 @@ public class Item {
     @Column(name = "ITEM_ID")
     private Long id;
 
-    @Column(name = "MEMBER_ID")
+    @Column(name = "NAME")
     private String name;
 
+    @Column(name = "PRICE")
     private int price;
 
+    @Column(name = "STOCKQUANTITY")
     private int stockQuantity;
 }
